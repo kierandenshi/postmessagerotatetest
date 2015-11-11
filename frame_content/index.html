@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      html, body { height: 100%; font-size: 48px; }
+      div { position: relative; text-align: center; top: 50%; transform: top(-50%); -webkit-transform: top(-50%); }
+    </style>
+  </head>
+  <body>
+    <div id="landscape">Landscape! Everything is awesome!</div>
+    <div id="portrait" style="display:none;">Portrait! Rotate your phone, ya dummy</div>
+
+    <script>
+      window.addEventListener("message", rotationChangeHandler, false);
+      var l = document.getElementById('landscape');
+      var p = document.getElementById('portrait');
+      function rotationChangeHandler(event) {
+        if(event.data == 'portrait') {
+          p.style.display = 'block';
+          l.style.display = 'none';
+        } else {
+          p.style.display = 'none';
+          l.style.display = 'block';
+        }
+      }
+    </script>
+
+  </body>
+
+</html>
